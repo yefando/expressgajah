@@ -418,7 +418,7 @@ app.post(
 
 // Rute Home
 app.get('/', (req, res) => {
-    res.send('Aplikasi Express terhubung ke MySQL!');
+    res.send('Api Ready');
 });
 
 // Jalankan Server
