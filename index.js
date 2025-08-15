@@ -313,7 +313,7 @@ app.get('/api/my-courses', authenticateToken, async (req, res) => {
     const { id } = req.user;
     try {
         const [courses] = await pool.query(
-            'SELECT c.*, e.id AS enrollment_id, e.status FROM courses c INNER JOIN enrollments e ON c.id = e.course_id WHERE e.user_id = ?',
+            'SELECT c.*, e.id AS enrollment_id, e.uuid AS enrollment_uuid, e.status FROM courses c INNER JOIN enrollments e ON c.id = e.course_id WHERE e.user_id = ?',
             [id]
         );
         if (courses.length === 0) {
